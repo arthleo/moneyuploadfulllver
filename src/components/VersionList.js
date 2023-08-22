@@ -26,7 +26,7 @@ export default function VersionList({ versions }) {
         <div key={version.id} className="card">
           <h3>{version.title}</h3>
           <p>{version.comment.substring(0,18)}</p>     
-          <h5><Link to={`/recipe/${version.id}`} key={version.id}>Show More</Link>  </h5>
+          <h5><Link to={`/recipe/${version.id}`} key={version.id}>Show more</Link>  </h5>
           <img 
             className="delete"
             onClick={() => history.push(`/edit/${version.id}` )}

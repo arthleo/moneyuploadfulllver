@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react'
 import updateDocument, { useFirestore } from '../../hooks/useFirestore.js'
 import { useHistory } from 'react-router-dom'
 import { projectFirestore } from '../../firebase/config'
+import { toast } from "react-toastify"
+import { FaEdit} from 'react-icons/fa'
 
 export default function Edit() {
   const { id } = useParams()  
@@ -24,6 +26,7 @@ export default function Edit() {
     })
     if (!response.error){
       console.log('Update has been done.')
+      toast.info("Version edit has been updated")  
       history.push(`/version/`)
     }   
   }   
@@ -35,7 +38,7 @@ export default function Edit() {
           setIsPending(false)
           console.log('Test: ' + doc.data().title)
           setTitle(doc.data().title)   
-          setComment(doc.data().comment)     
+          setComment(doc.data().comment)   
        
         } else {
           setIsPending(false)
@@ -46,7 +49,7 @@ export default function Edit() {
     
     return (
         <form onSubmit={handleSubmit} className={styles['signup-form']}>
-        <h2>Version Edit</h2>
+        <h2><FaEdit /> Version Edit</h2>
         <label>
           <span>Title:</span>
           <input 
@@ -62,10 +65,10 @@ export default function Edit() {
             value={comment} 
           />
         </label>
-        
+
         { !isPending && <button className="btn">Submit</button> }
         { isPending && <button className="btn" disabled>Loading...</button> }
-         <br /> <br />
+         <br /> <br /> 
         { error && <p className='apperror'>{error}</p> }
       </form>
     )

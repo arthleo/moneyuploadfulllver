@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { projectFirestore } from '../../firebase/config'
 import { useHistory } from 'react-router-dom'
+import { toast } from "react-toastify"
 
 // styles
 import './Create.css'
@@ -14,6 +15,7 @@ export default function Create() {
   const handleSubmit = async(e) => {
     e.preventDefault()
     console.log(title, method)
+    toast.info("New feedback has been added.")
     
     let comment = method
     const doc = { title, comment }
@@ -27,11 +29,11 @@ export default function Create() {
   }
   return (
     <div className="create">
-      <h2 className="page-title">Add a New Version</h2>
+      <h2 className="page-title">Add a new feedback</h2>
       <form onSubmit={handleSubmit}>
 
         <label>
-          <span>Version title:</span>
+          <span>Title:</span>
           <input 
             type="text" 
             onChange={(e) => setTitle(e.target.value)}
@@ -43,7 +45,7 @@ export default function Create() {
         {/* recipe ingredients here */}
 
         <label>
-          <span>Version Comment:</span>
+          <span>Comment:</span>
           <textarea rows={18} cols={50}
             onChange={(e) => setMethod(e.target.value)}
             value={method}

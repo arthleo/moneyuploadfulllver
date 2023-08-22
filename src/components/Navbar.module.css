@@ -29,3 +29,11 @@
     color: rgb(0, 195, 255);
     text-decoration: none;
   }
+  @media screen and (max-width: 576px) {
+    .title {
+      visibility: hidden;
+    }
+    .navbar {
+      padding: 5px 10px;
+    }
+  }

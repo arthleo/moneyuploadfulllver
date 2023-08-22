@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useFirestore } from '../../hooks/useFirestore'
 import { HiCurrencyDollar } from 'react-icons/hi'
+import { toast } from "react-toastify"
 
 export default function TransactionForm({ uid }) {
   const [name, setName] = useState('')
@@ -10,6 +11,7 @@ export default function TransactionForm({ uid }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log({ uid, name, amount })
+    toast.info("Successfully added!")
     addDocument({ uid, name, amount })
   }
   //reset the form fields

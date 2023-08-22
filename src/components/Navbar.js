@@ -15,7 +15,7 @@ export default function Navbar() {
         <li className={styles.title}><Link to="/">myMoney Bank <HiCurrencyDollar /></Link></li>
         {!user && (
           <>
-           <li><Link to="/version">Version</Link></li>
+           <li><Link to="/version">Feedback</Link></li>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/signup">Signup</Link></li>

@@ -31,7 +31,7 @@ export default function Recipe() {
   return (
     <div className={`content`}>
       {error && <p className="error">{error}</p>}
-      {isPending && <p className="loading">Loading...</p>}
+      {isPending && <p className="loading">Loading..</p>}
       {recipe && (
         <>
           <h2 className="page-title">{recipe.title} -- Version Details</h2>     <hr />    
