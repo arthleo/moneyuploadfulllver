@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { projectAuth } from '../firebase/config'
 import { useAuthContext } from './useAuthContext'
+import { toast } from "react-toastify"
 
 export const useLogin = () => {
   const [isCancelled, setIsCancelled] = useState(false)
@@ -18,6 +19,7 @@ export const useLogin = () => {
 
       // dispatch login action
       dispatch({ type: 'LOGIN', payload: res.user })
+      toast.info("Login Successful!")
 
       if (!isCancelled) {
         setIsPending(false)

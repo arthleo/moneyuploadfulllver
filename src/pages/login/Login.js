@@ -4,7 +4,6 @@ import React from 'react'
 import { useState } from 'react'
 import { useLogin } from '../../hooks/useLogin'
 import { HiMail, HiKey } from "react-icons/hi"
-import { toast } from "react-toastify"
 
 export default function Login() {
   const [email, setEmail] = useState('')
@@ -14,7 +13,6 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(email, password)
-    toast.info("Login Successful!")
     login(email, password)
   }
   return (
