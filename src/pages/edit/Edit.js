@@ -26,7 +26,7 @@ export default function Edit() {
     })
     if (!response.error){
       console.log('Update has been done.')
-      toast.info("Version edit has been updated")  
+      toast.info("Feedback has been updated")  
       history.push(`/version/`)
     }   
   }   

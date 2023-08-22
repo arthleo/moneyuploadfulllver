@@ -73,7 +73,7 @@ export const useFirestore = (collection) => {
       {
       const deleteDocument = await ref.doc(id).delete()
       dispatchIfNotCancelled({ type: 'DELETED_DOCUMENT', payload: deleteDocument })
-      toast.info("One document has been deleted.")
+      toast.info("Deleted successfully.")
       }
     }
     catch (err) {

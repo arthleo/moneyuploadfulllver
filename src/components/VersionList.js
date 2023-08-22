@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import Trashcan from '../assets/delete.svg'
 import Editnote from '../assets/edit_note.svg'
 import { useHistory } from 'react-router-dom'
-
+import { toast } from "react-toastify"
 import { projectFirestore } from "../firebase/config"
 
 // styles
@@ -17,6 +17,7 @@ export default function VersionList({ versions }) {
     const handleClick = (id) => {      
       if (window.confirm("Delete Record: (" + id + ")?")){
         projectFirestore.collection('versions').doc(id).delete()
+        toast.info("Feedback deleted successfully.")
       }
       }
     
