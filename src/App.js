@@ -14,12 +14,29 @@ import Navbar from './components/Navbar'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
+import { useState, useEffect } from "react"
+import Spinner from "./components/loadingscreen"
+
 function App() {
   const { authIsReady, user } = useAuthContext()
+  const [loading, setLoading] = useState(true);
+  function Loading(){
+    useEffect(() => {   
+      setTimeout(() => {       
+        setLoading(false);   console.log('load start... ' + loading);   
+     }, 1000);  
+    }, []);
+    if (loading) {    
+      console.log('load start... ' + loading);
+      return <Spinner />;    
+    }
+  }
+    return null
+
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+        <Navbar /> <Loading />
         <Switch>
           <Route exact path="/">
             {!user && <Redirect to="/login" />}
