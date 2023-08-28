@@ -30,8 +30,10 @@ function App() {
       console.log('load start... ' + loading);
       return <Spinner />;    
     }
-  }
     return null
+  }
+    
+  
 
   return (
     <div className="App">
